@@ -2,5 +2,6 @@
 Feature: # Enter feature name here
   # Enter feature description here
 
-  Scenario: # Enter scenario name here
-    # Enter steps here
+  Scenario: Verify user can see 5 tabs
+    Given Open Best seller page
+    Then Verify 5 tabs are visible
