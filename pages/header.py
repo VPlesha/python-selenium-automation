@@ -5,7 +5,7 @@ from pages.base_page import Page
 class Header(Page):
     SEARCH_FIELD = (By.ID, "twotabsearchtextbox")
     SEARCH_BTN = (By.ID, "nav-search-submit-button")
-    ORDER_BTN = (By.ID, '#nav-orders')
+    ORDER_BTN = (By.ID, 'nav-orders')
 
 
     def search_product(self, product):

@@ -7,6 +7,7 @@ class SignInPage(Page):
 
 
 
-    def signin_page(self, expected_text):
-        actual_text = self.find.element(*self.SIGNIN).text
+    def verify_signin_page(self, expected_text):
+        actual_text = self.driver.find_element(*self.SIGNIN).text
+
         assert actual_text == expected_text, f'Error, expected {expected_text} did not match actual {actual_text} '

@@ -9,7 +9,7 @@ def click_order(context):
 
 
 @then('Verify Sign In page is opened')
-def verify_signin_page(context, expected_text):
-    context.app.signin_page.verify_signin_page(expected_text)
+def verify_signin_page(context):
+    context.app.signin_page.verify_signin_page('Sign in')
 
 
