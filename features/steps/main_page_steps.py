@@ -11,10 +11,10 @@ FOOTER_LINKS =(By.CSS_SELECTOR, '.navFooterDescItems')
 SIGNIN_BTN = (By.CSS_SELECTOR, '#nav-signin-tooltip .nav-action-signin-button')
 SEARCH_RESULT =(By.CSS_SELECTOR, '.a-color-state a-text-bold')
 
-# @given('Open Amazon page')
-# def open_amazon(context):
-#     # context.driver.get('https://www.amazon.com')
-#     context.app.main_page.open_main()
+@given('Open Amazon page')
+def open_amazon(context):
+    # context.driver.get('https://www.amazon.com')
+    context.app.main_page.open_main()
 
 @when('Search for {product}')
 def search_on_amazon(context, product):
