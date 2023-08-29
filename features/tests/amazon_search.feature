@@ -1,23 +1,23 @@
-
-Scenario: Verify that a user can search for a dress
-  Given Open Amazon page
-  When Search for dress
-  Then Verify search result is correct
+Feature: User can search for a dress
+  Scenario: Verify that a user can search for a dress
+    Given Open Amazon page
+    When Search for dress
+    Then Verify search result is correct
 
 
 
 #Feature: Verify that a user can search for a product
 
-  Scenario: Verify that a user cab search for a product
+  Scenario Outline: Verify that a user cab search for a product
     Given Open Amazon page
     When Search for <search_word>
     Then Verify search result is <search_word>
 
     Examples:
-    |search_word     |search_result   |
-    |cup             |"cup"           |
-    |dress           |"dress"         |
-    |tea             |"tea"           |
+      | search_word | search_result |
+      | cup         | "cup"         |
+      | dress       | "dress"       |
+      | tea         | "tea"         |
 
   Scenario: User can add a product to the cart
     Given Open Amazon page
