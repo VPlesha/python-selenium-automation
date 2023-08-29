@@ -2,7 +2,7 @@
 Feature: Verify user can see that every product has a name and image
 
   Scenario: Verify product has name and image
-    Given Open amazon home page
-    When Search for product
+    Given Open Amazon page
+    When Look for item
     When Click on search button
     Then Verify every product has name and image
