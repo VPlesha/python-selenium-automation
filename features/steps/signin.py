@@ -3,11 +3,6 @@ from behave import given, when, then
 from time import sleep
 
 
-# @given('Open Amazon page')
-# def open_amazon(context):
-#     context.app.main_page.open_main()
-
-
 @when('Click Amazon Orders link')
 def click_order(context):
     context.app.header.click_order()

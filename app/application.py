@@ -4,7 +4,7 @@ from pages.search_result import SearchResult
 
 class Application:
 
-    def __int__(self, driver):
+    def __init__(self, driver):
 
         self.main_page = MainPage(driver)
         self.header = Header(driver)

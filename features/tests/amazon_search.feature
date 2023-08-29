@@ -4,14 +4,10 @@ Feature: User can search for a dress
     When Search for dress
     Then Verify search result is correct
 
-
-
-#Feature: Verify that a user can search for a product
-
   Scenario Outline: Verify that a user cab search for a product
     Given Open Amazon page
     When Search for <search_word>
-    Then Verify search result is <search_word>
+    Then Verify search result is <search_result>
 
     Examples:
       | search_word | search_result |

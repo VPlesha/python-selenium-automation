@@ -6,10 +6,10 @@ from time import sleep
 
 SEARCH_FIELD = (By.ID, "twotabsearchtextbox")
 SEARCH_BTN = (By.ID, "nav-search-submit-button")
-ORDER_BTN = (By. ID, 'nav-orders')
-FOOTER_LINKS =(By.CSS_SELECTOR, '.navFooterDescItems')
+ORDER_BTN = (By.ID, 'nav-orders')
+FOOTER_LINKS = (By.CSS_SELECTOR, '.navFooterDescItems')
 SIGNIN_BTN = (By.CSS_SELECTOR, '#nav-signin-tooltip .nav-action-signin-button')
-SEARCH_RESULT =(By.CSS_SELECTOR, '.a-color-state a-text-bold')
+SEARCH_RESULT = (By.CSS_SELECTOR, '.a-color-state a-text-bold')
 
 @given('Open Amazon page')
 def open_amazon(context):
