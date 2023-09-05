@@ -1,4 +1,10 @@
 
+def are_anagrams(s1: str, s2: str):
+    return sorted(s1.lower()) == sorted(s2.lower())
+
+print(are_anagrams('rage', 'ager'))
+
+
 
 def reverse_words(sentence: str):
     result = []
