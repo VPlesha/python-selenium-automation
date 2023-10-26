@@ -1,4 +1,5 @@
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.support.wait import WebDriverWait
@@ -9,7 +10,14 @@ def browser_init(context):
     """
     driver_path = ChromeDriverManager().install()
     service = Service(driver_path)
-    context.driver = webdriver.Chrome(service=service)
+
+    options = Options()
+    options.add_argument('--headless')
+    options.add_argument('--disable-gpu')
+    options.add_argument("--window-size=1920,1080")
+    options.add_argument("--start-maximized")
+
+    context.driver = webdriver.Chrome(service=service, options=options)
     context.driver.refresh()
 
     context.driver.maximize_window()
@@ -36,3 +44,4 @@ def after_step(context, step):
 def after_scenario(context, feature):
     context.driver.delete_all_cookies()
     context.driver.quit()
+
