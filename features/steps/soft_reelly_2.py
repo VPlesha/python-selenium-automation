@@ -5,6 +5,7 @@ from time import sleep
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
@@ -45,40 +46,32 @@ def setting_page(context):
 
 @when("Click on each settings option and go back (except on log out)")
 def click_on_each_option(context):
-    # list_options = context.driver.find_elements(By.CSS_SELECTOR, ".page-setting-block.w-inline-block")
-    # for i in range(len(list_options)-1):
-        # sleep(2)
-        # list_options[i].click()
-        # # sleep(2)
-        #
-    sleep(2)
-    context.driver.find_element(By.XPATH, "//a[contains(@href, '/add-a-project')]").click()
-    sleep(2)
-    context.driver.find_element(By.XPATH, "//a[contains(@href, '/settings')]").click()
-    sleep(2)
-    context.driver.find_element(By.XPATH, "//a[contains(@href, '/profile-edit')]").click()
-    sleep(2)
-    context.driver.find_element(By.XPATH, "//a[contains(@href, '/settings')]").click()
-    sleep(2)
-    context.driver.find_element(By.XPATH, "//a[@href='https://wa.me/message/ULET72INKB57H1']").click()
-    # context.driver.find_element(By.XPATH, "//a[contains(@href, '/settings')]").click()
-    driver.close()
-    context.driver.find_element(By.XPATH, "//a[contains(@href, 'https://t.me/reellydxb')]").click()
-    context.driver.find_element(By.XPATH, "//a[contains(@href, '/settings')]").click()
-    context.driver.find_element(By.XPATH, "//a[contains(@href, '/community')]").click()
-    context.driver.find_element(By.XPATH, "//a[contains(@href, '/settings')]").click()
-    context.driver.find_element(By.XPATH, "//a[contains(@href, '/user-guide')]").click()
-    context.driver.find_element(By.XPATH, "//a[contains(@href, '/settings')]").click()
-    context.driver.find_element(By.XPATH, "//a[contains(@href, '/verification/step-0')]").click()
-    context.driver.find_element(By.XPATH, "//a[contains(@href, '/settings')]").click()
-    context.driver.find_element(By.XPATH, "//a[contains(@href, '/set-new-password')]").click()
-    context.driver.find_element(By.XPATH, "//a[contains(@href, '/settings')]").click().context.driver.find_element(By.XPATH, "//a[contains(@href, '/add-a-project')]").click()
-    context.driver.find_element(By.XPATH, "//a[contains(@href, '/subscription')]").click().context.driver.find_element(By.XPATH, "//a[contains(@href, '/add-a-project')]").click()
-    context.driver.find_element(By.XPATH, "//a[contains(@href, '/settings')]").click()
+    WebDriverWait(context.driver, 10).until(EC.visibility_of_element_located((By.XPATH, "//a[contains(@href, '/set-new-password')]"))).click()
+    context.driver.back()
+    WebDriverWait(context.driver, 10).until(EC.visibility_of_element_located((By.XPATH, "//a[contains(@href, '/add-a-project')]"))).click()
+    context.driver.back()
+    WebDriverWait(context.driver, 10).until(EC.visibility_of_element_located((By.XPATH, "//a[contains(@href, '/profile-edit')]"))).click()
+    context.driver.back()
+    WebDriverWait(context.driver, 10).until(EC.visibility_of_element_located((By.XPATH, "//div[@class='settings-block-menu']//a[contains(@href, '/community')]"))).click()
+    context.driver.back()
+    WebDriverWait(context.driver, 10).until(EC.visibility_of_element_located((By.XPATH, "//div[@class='settings-block-menu']//a[contains(@href, '/user-guide')]"))).click()
+    context.driver.back()
+    WebDriverWait(context.driver, 10).until(EC.visibility_of_element_located((By.XPATH, "//div[@class='settings-block-menu']//a[contains(@href, '/verification/step-0')]"))).click()
+    context.driver.back()
+    WebDriverWait(context.driver, 10).until(EC.visibility_of_element_located((By.XPATH, "//div[@class='settings-block-menu']//a[contains(@href, '/subscription')]"))).click()
+    context.driver.back()
+    WebDriverWait(context.driver, 10).until(EC.visibility_of_element_located((By.XPATH, "//div[@class='settings-block-menu']//a[contains(@href, '/contact-us')]"))).click()
+    context.driver.back()
+    WebDriverWait(context.driver, 10).until(EC.visibility_of_element_located((By.XPATH, "//a[contains(@href, 'wa.me/message/') and contains(@class, 'page-setting-block')]"))).click()
+    WebDriverWait(context.driver, 10).until(EC.visibility_of_element_located((By.TAG_NAME, "body"))).send_keys(Keys.CONTROL + 'w')
+    WebDriverWait(context.driver, 10).until(EC.visibility_of_element_located((By.TAG_NAME, "body"))).send_keys(Keys.COMMAND + 'w')
+    WebDriverWait(context.driver, 10).until(EC.visibility_of_element_located((By.XPATH, "//div[@class='settings-block-menu']//a[contains(@href, 'https://t.me/reellydxb')]"))).click()
+    context.driver.back()
+
 
 @then("Verify there are 11 options for the settings")
 def verify_options(context):
-    list_options = context.driver.find_element(By.CSS_SELECTOR, ".page-setting-block.w-inline-block")
+    list_options = context.driver.find_elements(By.CSS_SELECTOR, ".page-setting-block.w-inline-block")
     assert len(list_options) == 11
     print("Test passed: There are 11 settings options")
 
