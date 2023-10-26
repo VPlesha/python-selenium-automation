@@ -1,23 +1,15 @@
 from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.support.wait import WebDriverWait
 from app.application import Application
 def browser_init(context):
     """
     :param context: Behave context
     """
-    driver_path = ChromeDriverManager().install()
-    service = Service(driver_path)
-
     options = Options()
-    options.add_argument('--headless')
-    options.add_argument('--disable-gpu')
-    options.add_argument("--window-size=1920,1080")
-    options.add_argument("--start-maximized")
+    options.headless = True
 
-    context.driver = webdriver.Chrome(service=service, options=options)
+    context.driver = webdriver.Firefox(options=options)
     context.driver.refresh()
 
     context.driver.maximize_window()

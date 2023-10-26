@@ -12,9 +12,6 @@ from selenium.webdriver.support import expected_conditions as EC
 SETTING = (By.XPATH, "//a[contains(@href, '/settings')]")
 SETTING_PAGE = (By.CSS_SELECTOR, ".body-setting")
 
-driver = webdriver.Chrome()
-
-
 @given("Open the main page")
 def open_main_page(context):
     context.driver.get('https://soft.reelly.io/')
